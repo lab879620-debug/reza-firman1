@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap");
+
+:root {
+  --night: #0e0a24;
+  --panel: #1a1440;
+  --line: #2e2564;
+  --text: #edebff;
+  --muted: #a59fd0;
+  --violet: #7c5cff;
+  --cyan: #35e0f0;
+  --hot: #ff5c8a;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--night);
+  background-image:
+    radial-gradient(900px 500px at 85% -5%, rgba(124, 92, 255, 0.35), transparent 60%),
+    radial-gradient(700px 500px at 0% 30%, rgba(53, 224, 240, 0.12), transparent 60%),
+    radial-gradient(800px 600px at 100% 90%, rgba(255, 92, 138, 0.12), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ---------- Header / Hero ---------- */
+header {
+  text-align: center;
+  padding: 4.5rem 1.5rem 3rem;
+  border-bottom: 1px solid var(--line);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+  -webkit-mask-image: linear-gradient(#000 75%, transparent);
+  mask-image: linear-gradient(#000 75%, transparent);
+}
+
+header h1 {
+  margin: 0 0 0.75rem;
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 7vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  background: linear-gradient(100deg, #fff 10%, var(--cyan) 45%, var(--violet) 75%, var(--hot));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: masuk 0.9s ease-out both, geser 8s linear 0.9s infinite alternate;
+}
+
+header p {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  animation: masuk 0.9s 0.15s ease-out both;
+}
+
+/* font-size 0 menyembunyikan tanda "|" di antara tautan */
+nav {
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  animation: masuk 0.9s 0.3s ease-out both;
+}
+
+nav a {
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(26, 20, 64, 0.7);
+  transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px rgba(53, 224, 240, 0.45);
+}
+
+@keyframes masuk {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes geser {
+  to { background-position: 200% center; }
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 880px;
+  margin: 2rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+main hr { border: 0; height: 1.5rem; margin: 0; }
+header + hr, footer hr { display: none; }
+
+section {
+  display: flow-root;
+  padding: 2rem 2.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    linear-gradient(135deg, var(--violet), var(--line) 45%, var(--cyan)) border-box;
+  transition: box-shadow 0.3s;
+}
+
+section:hover { box-shadow: 0 0 40px rgba(124, 92, 255, 0.25); }
+
+h2 {
+  margin: 0 0 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 5px solid var(--hot);
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 1.6rem 0 0.7rem;
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--cyan);
+}
+
+p { margin: 0 0 1rem; max-width: 68ch; }
+
+a { color: var(--cyan); text-underline-offset: 3px; }
+a:hover { color: var(--hot); }
+
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* ---------- Tentang ---------- */
+#tentang img {
+  float: left;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--night);
+  box-shadow: 0 0 0 3px var(--violet), 0 0 30px rgba(124, 92, 255, 0.6);
+  margin: 0.25rem 2rem 1rem 0.5rem;
+  shape-outside: circle();
+}
+
+/* ---------- Keahlian ---------- */
+#keahlian ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+#keahlian li {
+  padding: 0.4rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--night);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+#keahlian li:hover {
+  transform: translateY(-3px);
+  border-color: var(--violet);
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.4);
+}
+
+/* ---------- Proyek ---------- */
+/* Hapus blok ini kalau proyekmu sudah diisi */
+#proyek::after {
+  content: "Proyek pertama sedang dikerjakan. Tunggu ya!";
+  display: block;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+/* ---------- Tabel ---------- */
+table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75rem 1rem !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+tbody tr:last-child td { border-bottom: 0 !important; }
+
+thead th {
+  background: linear-gradient(90deg, var(--violet), #5b8cff);
+  color: #fff;
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-weight: 600;
+}
+
+tbody tr { transition: background 0.2s; }
+tbody tr:hover { background: rgba(124, 92, 255, 0.15); }
+
+#pengalaman ul { margin: 0; padding-left: 1.2rem; }
+
+/* ---------- Kontak ---------- */
+#kontak ul { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+#kontak li { margin-bottom: 0.3rem; }
+
+form {
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+label { font-weight: 700; font-size: 0.95rem; color: var(--muted); }
+
+input, textarea {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--night);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(53, 224, 240, 0.25);
+}
+
+textarea { resize: vertical; }
+
+button {
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(100deg, var(--violet), var(--hot));
+  box-shadow: 0 8px 24px rgba(255, 92, 138, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255, 92, 138, 0.5); }
+button:active { transform: translateY(1px); }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+footer p { margin: 0 auto; }
+
+/* ---------- Layar kecil ---------- */
+@media (max-width: 600px) {
+  section { padding: 1.4rem 1.2rem; }
+  #tentang img { float: none; display: block; margin: 0 auto 1.25rem; shape-outside: none; }
+  table { font-size: 0.85rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
